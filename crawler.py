@@ -6,7 +6,8 @@ import psycopg2 # needed to load data into PostgreSQL DB
 
 """
 ------- ANSATZ -------
-Erstellung einer Menge (keine Duplikate) von Link-Objekten, welche dann iterativ in eine PostgreSQL Datenbank eingebunden werden. 
+Erstellung einer Menge (keine Duplikate) von Link-Objekten, welche dann iterativ in eine PostgreSQL Datenbank eingebunden werden.
+ 
 Link_Objekt: 
 {
   URL: url
@@ -29,6 +30,8 @@ def get_links_from_url(url):
   anchors = anchor_regex.findall(dump)
   # search for href tags
   href_regex = re.compile(r'href="(.*?)"')
+
+  # <a href="google.com" >Google</a>
 
   match_objects = []
 
